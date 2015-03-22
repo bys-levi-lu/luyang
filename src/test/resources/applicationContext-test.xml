@@ -38,7 +38,7 @@
     </tx:advice>
 	
 	<aop:config>
-        <aop:pointcut id="testServicePointcut" expression="execution(* com.ly.test.simple.service.TestService.*(..))"/>
+        <aop:pointcut id="testServicePointcut" expression="execution(* com.ly.test.simple.service.TestServiceTest.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="testServicePointcut"/>
     </aop:config>
 	
@@ -58,11 +58,11 @@
 		<property name="defaultAutoCommit" value="false"/>
 	</bean>
 	
-	<bean id="testDao" class="com.ly.test.simple.dao.TestDAOImpl">
+	<bean id="testDao" class="com.ly.test.simple.dao.TestDAOImplTest">
 		<property name="template" ref="jdbcTemplate"/>
 	</bean>
 	
-	<bean id="testService" class="com.ly.test.simple.service.TestBusiness">
+	<bean id="testService" class="com.ly.test.simple.service.TestBusinessTest">
 		<property name="dao" ref="testDao"/>
 	</bean>
 	

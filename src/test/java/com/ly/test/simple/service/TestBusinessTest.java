@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.ly.test.simple.dao.TestDAO;
+import com.ly.test.simple.dao.TestDAOTest;
 
 /**
  * <pre>
@@ -28,16 +28,16 @@ import com.ly.test.simple.dao.TestDAO;
  *  
  * </pre>
  */
-public class TestBusiness implements TestService
+public class TestBusinessTest implements TestServiceTest
 {
-	private TestDAO dao;
+	private TestDAOTest dao;
 	
 
 	/**
 	 * @return the dao
 	 */
 	
-	public TestDAO getDao()
+	public TestDAOTest getDao()
 	{
 		return dao;
 	}
@@ -45,7 +45,7 @@ public class TestBusiness implements TestService
 	/**
 	 * @param dao the dao to set
 	 */
-	public void setDao(TestDAO dao)
+	public void setDao(TestDAOTest dao)
 	{
 		this.dao = dao;
 	}
@@ -64,13 +64,13 @@ public class TestBusiness implements TestService
 		String value = "100TEST";
 		int i = dao.insert(id, value);
 		System.out.println(i);
-		throw new RuntimeException();
+		//throw new RuntimeException();
 	}
 	
 	public static void main(String[] args)
 	{
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext-test.xml");
-		TestService testService = (TestService)ctx.getBean("testService");
+		TestServiceTest testService = (TestServiceTest)ctx.getBean("testService");
 		testService.updateData();
 	}
 

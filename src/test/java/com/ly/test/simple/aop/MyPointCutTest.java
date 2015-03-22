@@ -25,7 +25,7 @@ import org.springframework.aop.support.NameMatchMethodPointcut;
  *  
  * </pre>
  */
-public class MyPointCut extends NameMatchMethodPointcut
+public class MyPointCutTest extends NameMatchMethodPointcut
 {
 
 	/**

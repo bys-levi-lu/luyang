@@ -9,13 +9,13 @@
 	   ">
 	   
 	<!--Define a business class-->
-	<bean id="baseBusiness" class="com.ly.test.simple.aop.BaseBusiness"/>
+	<bean id="baseBusiness" class="com.ly.test.simple.aop.BaseBusinessTest"/>
 	<!-- Define some advice class -->
-	<bean id="beforeAdvice" class="com.ly.test.simple.aop.BeforeMyAdvice"/>
-	<bean id="afterAdvice" class="com.ly.test.simple.aop.AfterMyAdvice"/>
-	<bean id="aroundAdvice" class="com.ly.test.simple.aop.AroundMyAdvice"/>
+	<bean id="beforeAdvice" class="com.ly.test.simple.aop.BeforeMyAdviceTest"/>
+	<bean id="afterAdvice" class="com.ly.test.simple.aop.AfterMyAdviceTest"/>
+	<bean id="aroundAdvice" class="com.ly.test.simple.aop.AroundMyAdviceTest"/>
 	<!-- Define a point cut class -->
-	<bean id="myPointcut" class="com.ly.test.simple.aop.MyPointCut"></bean>
+	<bean id="myPointcut" class="com.ly.test.simple.aop.MyPointCutTest"></bean>
 	<!-- 包装通知，指定切点 -->
 	<bean id="matchBeforeAdvisor" 
 		class="org.springframework.aop.support.DefaultPointcutAdvisor">
@@ -31,7 +31,7 @@
 		class="org.springframework.aop.framework.ProxyFactoryBean">
 		<!-- 代理对象所实现的接口 ，如果有接口可以这样设置 -->
 		<property name="proxyInterfaces">
-			<value>com.ly.test.simple.aop.IBaseBusiness</value>
+			<value>com.ly.test.simple.aop.IBaseBusinessTest</value>
 		</property>
 		<!-- 设置目标对象 -->
 		<property name="target">

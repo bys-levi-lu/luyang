@@ -20,11 +20,11 @@ package com.ly.test.simple;
  *  
  * </pre>
  */
-public class AfterInvoke implements IBaseHandler
+public class AfterInvokeTest implements IBaseHandlerTest
 {
 
 	@Override
-	public void invoke(IBaseProcess process)
+	public void invoke(IBaseProcessTest process)
 	{
 		// TODO Auto-generated method stub
 		process.process();

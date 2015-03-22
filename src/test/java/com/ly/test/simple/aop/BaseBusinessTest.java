@@ -20,7 +20,7 @@ package com.ly.test.simple.aop;
  *  
  * </pre>
  */
-public class BaseBusiness implements IBaseBusiness
+public class BaseBusinessTest implements IBaseBusinessTest
 {
 
 	@Override

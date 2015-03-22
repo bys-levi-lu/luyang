@@ -39,14 +39,14 @@ public class SimpleAOPTestCase extends TestCase
 	
 	public void testAOPByInterface()
 	{
-		IBaseBusiness baseBusiness = (IBaseBusiness)ctx.getBean("businessProxy");
+		IBaseBusinessTest baseBusiness = (IBaseBusinessTest)ctx.getBean("businessProxy");
 		baseBusiness.doAdd("HelloCat");
 		baseBusiness.doDelete("DOG");
 	}
 	
 	public void testAOPXML()
 	{
-		AspectBusiness biz = (AspectBusiness)ctx.getBean("aspectBusiness");
+		AspectBusinessTest biz = (AspectBusinessTest)ctx.getBean("aspectBusiness");
 		biz.add("tomcat");
 		biz.delete("abx");
 	}

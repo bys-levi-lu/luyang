@@ -25,7 +25,7 @@ import org.springframework.aop.AfterReturningAdvice;
  *  
  * </pre>
  */
-public class AfterMyAdvice implements AfterReturningAdvice
+public class AfterMyAdviceTest implements AfterReturningAdvice
 {
 	@Override
 	public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable

@@ -20,7 +20,7 @@ package com.ly.test.simple.aop;
  *  
  * </pre>
  */
-public interface IBaseBusiness
+public interface IBaseBusinessTest
 {
 	void doDelete(String name);
 	

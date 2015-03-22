@@ -20,7 +20,7 @@ package com.ly.test.simple.aop;
  *  
  * </pre>
  */
-public class AspectBusiness
+public class AspectBusinessTest
 {
 	public String delete(String name)
 	{

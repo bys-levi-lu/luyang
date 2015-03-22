@@ -25,7 +25,7 @@ import org.springframework.aop.ThrowsAdvice;
  *  
  * </pre>
  */
-public class ThrowMyAdvice implements ThrowsAdvice
+public class ThrowMyAdviceTest implements ThrowsAdvice
 {
 	public void afterThrowing(Method method, Object[] args, Object target, Exception ex)
 	{

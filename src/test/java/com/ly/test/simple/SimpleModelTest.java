@@ -20,7 +20,7 @@ package com.ly.test.simple;
  *  
  * </pre>
  */
-public class SimpleModel
+public class SimpleModelTest
 {
 
 }

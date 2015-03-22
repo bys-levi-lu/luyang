@@ -32,7 +32,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
  *  
  * </pre>
  */
-public class TestDAOImpl implements TestDAO
+public class TestDAOImplTest implements TestDAOTest
 {
 	private JdbcTemplate template;
 	@Override
@@ -80,7 +80,7 @@ public class TestDAOImpl implements TestDAO
 	public static void main(String[] args)
 	{
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext-test.xml");
-		TestDAO testDao = (TestDAO)ctx.getBean("testDao");
+		TestDAOTest testDao = (TestDAOTest)ctx.getBean("testDao");
 		String sql = "SELECT * FROM TEST";
 		Object result= testDao.getData();
 		System.out.println(result);

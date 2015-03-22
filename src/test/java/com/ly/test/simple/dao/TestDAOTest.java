@@ -22,7 +22,7 @@ package com.ly.test.simple.dao;
  *  
  * </pre>
  */
-public interface TestDAO
+public interface TestDAOTest
 {
 	public Object getData();
 	

@@ -26,7 +26,7 @@ import org.aopalliance.intercept.MethodInvocation;
  *  
  * </pre>
  */
-public class AroundMyAdvice implements MethodInterceptor
+public class AroundMyAdviceTest implements MethodInterceptor
 {
 
 	@Override

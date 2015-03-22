@@ -25,7 +25,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
  *  
  * </pre>
  */
-public class AspectAdvise
+public class AspectAdviseTest
 {
 	public void doBefore(JoinPoint point)
 	{

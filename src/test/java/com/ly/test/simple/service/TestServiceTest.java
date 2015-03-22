@@ -22,7 +22,7 @@ package com.ly.test.simple.service;
  *  
  * </pre>
  */
-public interface TestService
+public interface TestServiceTest
 {
 	public Object getData();
 	

@@ -20,11 +20,11 @@ package com.ly.test.simple;
  *  
  * </pre>
  */
-public class BeforeInvoke implements IBaseHandler
+public class BeforeInvokeTest implements IBaseHandlerTest
 {
 
 	@Override
-	public void invoke(IBaseProcess process)
+	public void invoke(IBaseProcessTest process)
 	{
 		// TODO Auto-generated method stub
 		System.out.println("---Before---");

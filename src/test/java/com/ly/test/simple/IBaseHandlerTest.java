@@ -20,9 +20,9 @@ package com.ly.test.simple;
  *  
  * </pre>
  */
-public interface IBaseHandler
+public interface IBaseHandlerTest
 {
-	void invoke(IBaseProcess process);
+	void invoke(IBaseProcessTest process);
 }
 
 /*

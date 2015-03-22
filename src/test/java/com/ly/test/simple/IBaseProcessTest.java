@@ -20,7 +20,7 @@ package com.ly.test.simple;
  *  
  * </pre>
  */
-public interface IBaseProcess
+public interface IBaseProcessTest
 {
 	void process();
 

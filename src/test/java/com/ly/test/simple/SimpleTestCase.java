@@ -65,21 +65,21 @@ public class SimpleTestCase extends TestCase
 			int f = rand.nextInt();
 			if (f%2 == 0)
 			{
-				li.add(new BeforeInvoke());
+				li.add(new BeforeInvokeTest());
 			}
 			else
 			{
-				li.add(new AfterInvoke());
+				li.add(new AfterInvokeTest());
 			}
 		}
 		
 		System.out.println("Output list>>>>>>>>>>>");
 		for (Object obj : li)
 		{
-			IBaseHandler invoker = (IBaseHandler)obj;
+			IBaseHandlerTest invoker = (IBaseHandlerTest)obj;
 			System.out.println(invoker);
 		}
-		IBaseProcess process = new MyProcess(li);
+		IBaseProcessTest process = new MyProcessTest(li);
 		process.process();
 	}
 }

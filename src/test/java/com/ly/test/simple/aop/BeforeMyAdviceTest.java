@@ -25,7 +25,7 @@ import org.springframework.aop.MethodBeforeAdvice;
  *  
  * </pre>
  */
-public class BeforeMyAdvice implements MethodBeforeAdvice
+public class BeforeMyAdviceTest implements MethodBeforeAdvice
 {
 	@Override
 	public void before(Method method, Object[] args, Object target) throws Throwable

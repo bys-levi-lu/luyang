@@ -23,14 +23,14 @@ import java.util.List;
  *  
  * </pre>
  */
-public class MyProcess implements IBaseProcess
+public class MyProcessTest implements IBaseProcessTest
 {
 
 	private List<Object> chain;
 	
 	private int currentIndex = -1;
 	
-	public MyProcess(List<Object> li)
+	public MyProcessTest(List<Object> li)
 	{
 		chain = li;
 	}
@@ -40,7 +40,7 @@ public class MyProcess implements IBaseProcess
 	{
 		if (chain.size() > 0 && currentIndex < chain.size() - 1)
 		{
-			IBaseHandler invoker = (IBaseHandler) chain.get(++currentIndex);
+			IBaseHandlerTest invoker = (IBaseHandlerTest) chain.get(++currentIndex);
 			invoker.invoke(this);
 		}
 	}
