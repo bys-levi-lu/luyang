@@ -13,6 +13,9 @@ import junit.framework.TestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.ly.test.simple.model.Test2Model;
+import com.ly.test.simple.model.TestModel;
+
 
 /**
  * <pre>
@@ -81,6 +84,14 @@ public class SimpleTestCase extends TestCase
 		}
 		IBaseProcessTest process = new MyProcessTest(li);
 		process.process();
+	}
+	
+	public void testConstructorDI() throws InterruptedException
+	{
+		TestModel testModel = (TestModel)ctx.getBean("testModel");
+		System.out.println(testModel.getId());
+		
+		//Test2Model test2 = (Test2Model)ctx.getBean("test2Model");
 	}
 }
 
