@@ -1,10 +1,8 @@
 package com.ly.test.simple.model;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.Lifecycle;
 import org.springframework.context.support.DefaultLifecycleProcessor;
 
 /**
@@ -102,6 +100,13 @@ public class TestModel extends DefaultLifecycleProcessor
 	{
 		return test2Model;
 	}
+	
+	@PostConstruct
+	public void testPostConstruct()
+	{
+		System.out.println("@PostConstruct");
+	}
+	
 }
 
 /*
