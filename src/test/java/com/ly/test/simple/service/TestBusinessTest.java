@@ -30,6 +30,7 @@ import com.ly.test.simple.dao.TestDAOTest;
  */
 public class TestBusinessTest implements TestServiceTest
 {
+    
 	private TestDAOTest dao;
 	
 

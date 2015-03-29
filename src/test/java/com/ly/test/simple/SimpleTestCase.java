@@ -90,7 +90,15 @@ public class SimpleTestCase extends TestCase
 	{
 		TestModel testModel = (TestModel)ctx.getBean("testModel");
 		System.out.println(testModel.getId());
+		testModel.setId("ddddddddddddddddddd");
+		TestModel testModel2 = (TestModel)ctx.getBean("testModel");
+		System.out.println(testModel.getId());
 		
+		Test2Model prototypeModel = (Test2Model)ctx.getBean("prototypeModel");
+		System.out.println(prototypeModel.getId2());
+		prototypeModel.setId2("new prototype");
+		Test2Model prototypeModel2 = (Test2Model)ctx.getBean("prototypeModel");
+		System.out.println(prototypeModel2.getId2());
 		//Test2Model test2 = (Test2Model)ctx.getBean("test2Model");
 	}
 }

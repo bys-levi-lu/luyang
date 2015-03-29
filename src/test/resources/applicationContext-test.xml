@@ -34,6 +34,10 @@
 		<property name="id2" value="test3"/>
 	</bean> 
 	
+	<bean id="prototypeModel" class="com.ly.test.simple.model.Test2Model" scope="prototype">
+		<property name="id2" value="prototypeModel"/>
+	</bean> 
+	
 	<bean id="propertyConfigurer" 
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">

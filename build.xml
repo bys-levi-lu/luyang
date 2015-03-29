@@ -1,7 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Web Application" default="build" basedir=".">
-	<path id="projectPath" >
-		
+<project name="WebApplication" default="help" basedir=".">
+	<property name="build.base.dir" value="target">
+	</property>
+	<property name="build.dir" value="${build.base.dir}/build">
+	</property>
+	<property name="dist.lib" value="${build.dir}/lib">
+	</property>
+	<property name="classes.dir" value="${build.dir}/classes">
+	</property>
+	<property name="test.classes.dir" value="${build.dir}/test/classes">
+	</property>
+	<property name="src.base.dir" value="src">
+	</property>
+	<property name="src.dir" value="${src.base.dir}/main/java">
+	</property>
+	<property name="test.base.dir" value="${src.base.dir}/test/">
+	</property>
+	<property name="test.dir" value="${test.base.dir}/java">
+	</property>
+	<property name="config.dir" value="${src.base.dir}/main/resources">
+	</property>
+	<property name="test.config.dir" value="${test.base.dir}/resources">
+	</property>
+	<property name="lib.dir" value="lib">
+	</property>
+	<property name="web.dir" value="${src.base.dir}/main/webapp">
+	</property>
+
+	<property name="encode" value="UTF-8">
+	</property>
+	<property name="version" value="1.0">
+	</property>
+
+	<path id="project.class.path">
+		<pathelement path="${classes.dir}"/>
+		<pathelement path="${test.classes.dir}"/>
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
 	</path>
+
+	<target name="help">
+		<echo>
+		</echo>
+	</target>
+
+	<target name="clean">
+		<echo>===============Begin Clean========================</echo>
+		<delete dir="${build.dir}/">
+		</delete>
+	</target>
+
+	<target name="prepared" depends="clean">
+		<echo>===============Begin Prepared========================</echo>
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${classes.dir}"/>
+		<mkdir dir="${test.classes.dir}"/>
+	</target>
+
+	<target name="compile" depends="prepared">
+		<echo>===============Begin Compile========================</echo>
+		<copy todir="${classes.dir}">
+			<fileset dir="${config.dir}">
+				<include name="**/*.xml"/>
+				<include name="**/*.properties"/>
+			</fileset>
+		</copy>
+		<javac srcdir="${src.dir}" destdir="${classes.dir}">
+			<classpath refid="project.class.path">
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="test.compile" depends="prepared">
+		<copy todir="${test.classes.dir}">
+			<fileset dir="${test.config.dir}">
+				<include name="**/*.*"/>
+			</fileset>
+		</copy>
+		<javac srcdir="${test.dir}" destdir="${test.classes.dir}" encoding="${encode}">
+			<classpath refid="project.class.path">
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<echo>===============Begin Jar========================</echo>
+		<jar destfile="${dist.lib}/${ant.project.name}-${version}.jar">
+			<fileset dir="${classes.dir}">
+				<exclude name="*.*"/>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="package" depends="jar">
+		<echo>===============Begin package========================</echo>
+		<copy todir="${dist.lib}">
+			<mapper type="flatten"></mapper>
+		    <fileset dir="${lib.dir}">
+		    	<include name="**/*.jar"/>
+		    	<exclude name="/junit/"/>
+		    </fileset>
+		</copy>
+		<war destfile="${build.dir}/${ant.project.name}-${version}.war" webxml="${web.dir}/WEB-INF/web.xml ">
+			<fileset dir="${web.dir}"></fileset>
+			<lib dir="${dist.lib}"></lib>
+			<classes dir="${config.dir}"></classes>
+		</war>
+	</target>
+	
+
 
 </project>

@@ -1,10 +1,7 @@
 package com.ly.business;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+import com.ly.dao.TestDAO;
 import com.ly.service.TestService;
-import com.ly.test.simple.dao.TestDAOTest;
 
 /**
  * <pre>
@@ -29,13 +26,13 @@ import com.ly.test.simple.dao.TestDAOTest;
  */
 public class TestBusiness implements TestService
 {
-	private TestDAOTest dao;
+	private TestDAO dao;
 
 	/**
 	 * @return the dao
 	 */
 	
-	public TestDAOTest getDao()
+	public TestDAO getDao()
 	{
 		return dao;
 	}
@@ -43,7 +40,7 @@ public class TestBusiness implements TestService
 	/**
 	 * @param dao the dao to set
 	 */
-	public void setDao(TestDAOTest dao)
+	public void setDao(TestDAO dao)
 	{
 		this.dao = dao;
 	}
