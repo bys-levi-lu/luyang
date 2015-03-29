@@ -109,6 +109,12 @@
 		</war>
 	</target>
 	
+	<target name="Test" depends="test.compile">
+		<junit >
+		
+		</junit>
+	</target>
+	
 
 
 </project>
