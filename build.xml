@@ -10,6 +10,8 @@
 	</property>
 	<property name="test.classes.dir" value="${build.dir}/test/classes">
 	</property>
+	<property name="test.report.dir" value="${build.dir}/test/report">
+	</property>
 	<property name="src.base.dir" value="src">
 	</property>
 	<property name="src.dir" value="${src.base.dir}/main/java">
@@ -25,6 +27,8 @@
 	<property name="lib.dir" value="lib">
 	</property>
 	<property name="web.dir" value="${src.base.dir}/main/webapp">
+	</property>
+	<property name="deploy.dir" value="../env/deploy">
 	</property>
 
 	<property name="encode" value="UTF-8">
@@ -56,6 +60,7 @@
 		<mkdir dir="${build.dir}"/>
 		<mkdir dir="${classes.dir}"/>
 		<mkdir dir="${test.classes.dir}"/>
+		<mkdir dir="${dist.lib}"/>
 	</target>
 
 	<target name="compile" depends="prepared">
@@ -109,12 +114,30 @@
 		</war>
 	</target>
 	
-	<target name="Test" depends="test.compile">
-		<junit >
-		
-		</junit>
+	<target name="deploy" depends="package">
+		<copy overwrite="true" todir="${deploy.dir}" file="${build.dir}/${ant.project.name}-${version}.war">
+	    </copy>
 	</target>
 	
-
+	<target name="Test" depends="test.compile">
+		<echo>===============Begin run test case========================</echo>
+		<mkdir dir="${test.report.dir}/xml"/>
+		<mkdir dir="${test.report.dir}/html"/>
+		<junit printsummary="yes" fork="yes">
+			<classpath refid="project.class.path"></classpath>
+			<formatter type="xml"/>
+			<batchtest fork="yes" todir="${test.report.dir}/xml">
+			   <fileset dir="${test.classes.dir}">
+			   	   <include name="**/*TestCase.class"/>
+			   </fileset>
+			</batchtest>
+		</junit>
+		<junitreport>
+			<fileset dir="${test.report.dir}/xml">
+			   <include name="*.xml"/>
+			</fileset>
+			<report todir="${test.report.dir}/html" format="frames"/>
+		</junitreport>
+	</target>
 
 </project>

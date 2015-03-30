@@ -47,14 +47,14 @@
 		</property>
 	</bean>
 	
-	<bean id="aspectBusiness" class="com.ly.test.simple.aop.AspectBusiness"/>
-	<bean id="aspectAdvise" class="com.ly.test.simple.aop.AspectAdvise"/>
+	<bean id="aspectBusiness" class="com.ly.test.simple.aop.AspectBusinessTest"/>
+	<bean id="aspectAdvise" class="com.ly.test.simple.aop.AspectAdviseTest"/>
 	<aop:config>
 		<aop:aspect id="myAspect" ref="aspectAdvise">
 			<aop:pointcut id="myPointcut" 
-				expression="execution(* com.ly.test.simple.aop.AspectBusiness.*(..))"/>
+				expression="execution(* com.ly.test.simple.aop.AspectBusinessTest.*(..))"/>
 			<aop:pointcut id="pointAdd" 
-				expression="execution(* com.ly.test.simple.aop.AspectBusiness.add*(..))"/>
+				expression="execution(* com.ly.test.simple.aop.AspectBusinessTest.add*(..))"/>
 			<aop:before method="doBefore" pointcut-ref="pointAdd"/>
 			<aop:after-returning method="doAfter" pointcut-ref="myPointcut" 
 				returning="result"/>
