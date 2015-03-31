@@ -22,7 +22,7 @@ package com.ly.service;
  */
 public interface TestService
 {
-	public Object getData();
+	public Object getAllTestModel();
 
 	public void updateData();
 }

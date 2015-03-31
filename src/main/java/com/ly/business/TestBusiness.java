@@ -1,5 +1,7 @@
 package com.ly.business;
 
+import javax.annotation.Resource;
+
 import com.ly.dao.TestDAO;
 import com.ly.service.TestService;
 
@@ -26,6 +28,7 @@ import com.ly.service.TestService;
  */
 public class TestBusiness implements TestService
 {
+	@Resource
 	private TestDAO dao;
 
 	/**
@@ -46,7 +49,7 @@ public class TestBusiness implements TestService
 	}
 
 	@Override
-	public Object getData()
+	public Object getAllTestModel()
 	{
 		// TODO Auto-generated method stub
 		return dao.getData();

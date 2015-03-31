@@ -15,6 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ly.test.simple.model.Test2Model;
 import com.ly.test.simple.model.TestModel;
+import com.ly.test.simple.service.Test2Service;
 
 
 /**
@@ -100,6 +101,9 @@ public class SimpleTestCase extends TestCase
 		Test2Model prototypeModel2 = (Test2Model)ctx.getBean("prototypeModel");
 		System.out.println(prototypeModel2.getId2());
 		//Test2Model test2 = (Test2Model)ctx.getBean("test2Model");
+		
+		Test2Service test2Service = ctx.getBean(Test2Service.class);
+		test2Service.print();
 	}
 }
 

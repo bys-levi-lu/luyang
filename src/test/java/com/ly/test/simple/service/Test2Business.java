@@ -1,6 +1,7 @@
 package com.ly.test.simple.service;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
 
 /**
@@ -24,7 +25,7 @@ import org.springframework.stereotype.Controller;
  *  
  * </pre>
  */
-@Controller
+@Service
 public class Test2Business implements Test2Service
 {
 	private String output = "hello";

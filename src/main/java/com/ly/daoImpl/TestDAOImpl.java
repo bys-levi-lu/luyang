@@ -2,13 +2,14 @@ package com.ly.daoImpl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import com.ly.dao.TestDAO;
+import com.ly.model.TestModel;
 
 /**
  * <pre>
@@ -31,47 +32,53 @@ import com.ly.dao.TestDAO;
  *  
  * </pre>
  */
-public class TestDAOImpl extends JdbcBaseDAO implements TestDAO
+public class TestDAOImpl extends JdbcBaseDAOImpl implements TestDAO
 {
 	@Override
-	public Object getData()
+	public List<TestModel> getData()
 	{
 		String sql = "SELECT * FROM TEST";
-		Object o = jdbcTemplate.query(sql, new Object[]{}, extractor);
-		return o;
+		return template.query(sql, new Object[]{}, extractor);
 	}
 	
 	@Override
 	public int update(String key, String value)
 	{
 		String sql = "UPDATE TEST SET NAME = ? WHERE ID = ?";
-		return jdbcTemplate.update(sql, new Object[]{value, key});
+		return template.update(sql, new Object[]{value, key});
 	}
 	
 	@Override
 	public int delete(String key)
 	{
 		String sql = "DELETE TEST WHERE ID = ?";
-		return jdbcTemplate.update(sql, new Object[]{key});
+		return template.update(sql, new Object[]{key});
 	}
 
 	@Override
 	public int insert(String key, String value)
 	{
 		String sql = "INSERT INTO TEST (ID, NAME) VALUES(?, ?)";
-		return jdbcTemplate.update(sql, new Object[]{key, value});
+		return template.update(sql, new Object[]{key, value});
 	}
 	
-	private ResultSetExtractor extractor = new ResultSetExtractor()
+	private ResultSetExtractor<List<TestModel>> extractor = new ResultSetExtractor<List<TestModel>>()
 	{
-		public Object extractData(ResultSet rs) throws SQLException, DataAccessException
+		public List<TestModel> extractData(ResultSet rs) throws SQLException, DataAccessException
 		{
-			Map result = new HashMap();
+			List<TestModel> list = new ArrayList<TestModel>();
 			while (rs.next())
 			{
-				result.put(rs.getString("id"), rs.getString("name"));
+				TestModel model = new TestModel();
+				model.setId(rs.getInt("id"));
+				model.setName("name");
+				list.add(model);
 			}
-			return result;
+			if (list.isEmpty())
+			{
+				return null;
+			}
+			return list;
 		};
 	};
 	

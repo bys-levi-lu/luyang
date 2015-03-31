@@ -1,4 +1,9 @@
 package com.ly.dao;
+
+import java.util.List;
+
+import com.ly.model.TestModel;
+
 /**
  * <pre>
  * 
@@ -22,7 +27,7 @@ package com.ly.dao;
  */
 public interface TestDAO
 {
-	public Object getData();
+	public List<TestModel> getData();
 	
 	public int update(String key, String value);
 	

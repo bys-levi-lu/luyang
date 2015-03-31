@@ -25,27 +25,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
  *  
  * </pre>
  */
-public class JdbcBaseDAO
+public class JdbcBaseDAOImpl
 {
-	protected JdbcTemplate jdbcTemplate;
-
-	/**
-	 * @return the jdbcTemplate
-	 */
-	
-	public JdbcTemplate getJdbcTemplate()
-	{
-		return jdbcTemplate;
-	}
-
-	/**
-	 * @param jdbcTemplate the jdbcTemplate to set
-	 */
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate)
-	{
-		this.jdbcTemplate = jdbcTemplate;
-	}
-
+	@Resource
+	protected JdbcTemplate template;
 }
 
 /*

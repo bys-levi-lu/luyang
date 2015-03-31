@@ -41,6 +41,7 @@
 		<pathelement path="${test.classes.dir}"/>
 		<fileset dir="${lib.dir}">
 			<include name="**/*.jar"/>
+			<exclude name="tomcat/*.*"/>
 		</fileset>
 	</path>
 
@@ -101,10 +102,12 @@
 	<target name="package" depends="jar">
 		<echo>===============Begin package========================</echo>
 		<copy todir="${dist.lib}">
+			<!--Set mapper='flatten' to exclude dir-->
 			<mapper type="flatten"></mapper>
 		    <fileset dir="${lib.dir}">
 		    	<include name="**/*.jar"/>
 		    	<exclude name="/junit/"/>
+		    	<exclude name="/tomcat/"/>
 		    </fileset>
 		</copy>
 		<war destfile="${build.dir}/${ant.project.name}-${version}.war" webxml="${web.dir}/WEB-INF/web.xml ">
