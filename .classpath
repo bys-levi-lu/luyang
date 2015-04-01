@@ -22,7 +22,7 @@
 	<classpathentry kind="lib" path="lib/spring/spring-oxm-4.1.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-tx-4.1.1.RELEASE.jar" sourcepath="source/spring/spring-tx-4.1.1.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-web-4.1.1.RELEASE.jar" sourcepath="source/spring/spring-web-4.1.1.RELEASE-sources.jar"/>
-	<classpathentry kind="lib" path="lib/spring/spring-webmvc-4.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/spring-webmvc-4.1.1.RELEASE.jar" sourcepath="source/spring/spring-webmvc-4.1.1.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-webmvc-portlet-4.1.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-websocket-4.1.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/commons/log4j-1.2.17.jar"/>

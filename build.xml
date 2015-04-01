@@ -118,6 +118,9 @@
 	</target>
 	
 	<target name="deploy" depends="package">
+		<echo>===============Begin deploy========================</echo>
+		<delete dir="${deploy.dir}/${ant.project.name}-${version}"></delete>
+		<delete file="${deploy.dir}/${ant.project.name}-${version}.war"></delete>
 		<copy overwrite="true" todir="${deploy.dir}" file="${build.dir}/${ant.project.name}-${version}.war">
 	    </copy>
 	</target>

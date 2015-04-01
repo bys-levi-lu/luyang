@@ -26,13 +26,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * </pre>
  */
 @Controller
-public class HelloWorldAction {
-
-    @RequestMapping("/helloWorld")
-    public String helloWorld(Model model) {
-        model.addAttribute("message", "Hello World!");
-        return "helloWorld";
-    }
+@RequestMapping("/helloWorld")
+public class HelloWorldAction
+{
+	public String helloWorld(Model model)
+	{
+		model.addAttribute("message", "Hello World!");
+		return "helloWorld";
+	}
 }
 
 /*
