@@ -1,5 +1,7 @@
 package com.ly.web;
 
+import java.lang.annotation.Annotation;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,14 +28,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * </pre>
  */
 @Controller
-@RequestMapping("/helloWorld")
 public class HelloWorldAction
 {
-	public String helloWorld(Model model)
-	{
-		model.addAttribute("message", "Hello World!");
-		return "helloWorld";
-	}
+    @RequestMapping("/helloWorld")
+    public String helloWorld(Model model)
+    {
+	model.addAttribute("message", "Hello World!");
+	return "helloWorld";
+    }
 }
 
 /*
