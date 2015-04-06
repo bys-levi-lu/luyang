@@ -35,6 +35,8 @@
 	</property>
 	<property name="version" value="1.0">
 	</property>
+	<property name="debug" value="true">
+     </property>
 
 	<path id="project.class.path">
 		<pathelement path="${classes.dir}"/>
@@ -72,7 +74,7 @@
 				<include name="**/*.properties"/>
 			</fileset>
 		</copy>
-		<javac srcdir="${src.dir}" destdir="${classes.dir}">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true">
 			<classpath refid="project.class.path">
 			</classpath>
 		</javac>
@@ -90,7 +92,7 @@
 		</javac>
 	</target>
 
-	<target name="jar" depends="compile">
+	<target name="jar" depends="compile" unless="debug">
 		<echo>===============Begin Jar========================</echo>
 		<jar destfile="${dist.lib}/${ant.project.name}-${version}.jar">
 			<fileset dir="${classes.dir}">
@@ -114,6 +116,7 @@
 			<fileset dir="${web.dir}"></fileset>
 			<lib dir="${dist.lib}"></lib>
 			<classes dir="${config.dir}"></classes>
+			<classes dir="${classes.dir}"></classes>
 		</war>
 	</target>
 	
