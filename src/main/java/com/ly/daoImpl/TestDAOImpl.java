@@ -9,6 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import com.ly.dao.TestDAO;
+import com.ly.framework.db.JdbcSupport;
 import com.ly.model.TestModel;
 
 /**
@@ -32,7 +33,7 @@ import com.ly.model.TestModel;
  *  
  * </pre>
  */
-public class TestDAOImpl extends JdbcBaseDAOImpl implements TestDAO
+public class TestDAOImpl extends JdbcSupport implements TestDAO
 {
 	@Override
 	public List<TestModel> getData()

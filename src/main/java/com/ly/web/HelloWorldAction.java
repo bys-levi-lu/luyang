@@ -1,7 +1,5 @@
 package com.ly.web;
 
-import java.lang.annotation.Annotation;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
