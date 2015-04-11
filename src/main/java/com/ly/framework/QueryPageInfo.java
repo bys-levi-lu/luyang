@@ -35,6 +35,16 @@ public class QueryPageInfo
 	{
 		return pageSize;
 	}
+	
+	public int getStartRow()
+	{
+		return currentPage*pageSize + 1;
+	}
+	
+	public int getEndRow()
+	{
+		return currentPage*pageSize + pageSize + 1;
+	}
 
 	public void setPageSize(int pageSize)
 	{

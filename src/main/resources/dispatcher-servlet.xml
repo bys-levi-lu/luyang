@@ -21,4 +21,31 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<!-- ContentNegotiatingViewResolver视图解析器,利用他就可以配置多种返回值 -->
+ <bean  class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">   
+       
+   <!-- 这里是否忽略掉accept header，默认就是false -->
+   <property name="ignoreAcceptHeader" value="true" />   
+    
+   <!-- 如果所有的mediaType都没匹配上，就会使用defaultContentType -->
+   <property name="defaultContentType" value="text/html" />   
+    
+   <property name="mediaTypes">    
+    <map>     
+     <entry key="json" value="application/json" />      
+     <entry key="xml" value="application/xml" />      
+    </map>    
+   </property>   
+  <!-- 默认使用MappingJacksonJsonView生成jsonview-->
+  <property name="defaultViews">    
+    <list>     
+     <bean  class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">        
+         <property  name="extractValueFromSingleKeyModel" value="true" />     
+      </bean>        
+     </list>     
+    </property>  
+  </bean>
+	
+	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:resources mapping="/css/**" location="/css/" />
 </beans>

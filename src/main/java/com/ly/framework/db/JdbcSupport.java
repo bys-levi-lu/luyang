@@ -4,6 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -13,7 +16,7 @@ import com.ly.framework.QueryPageInfo;
  * <pre>
  * 
  *  Accela Automation
- *  File: JdbcBaseDAO.java
+ *  File: JdbcSupport.java
  * 
  *  Accela, Inc.
  *  Copyright (C): 2015
@@ -30,16 +33,13 @@ import com.ly.framework.QueryPageInfo;
  *  
  * </pre>
  */
-public class JdbcSupport
+public class JdbcSupport implements InitializingBean
 {
 	protected JdbcTemplate template;
 	
+	@Autowired
+	@Qualifier(value="wrapDataSource")
 	private DBTypeDataSource dataSource;
-	
-	public JdbcSupport()
-	{
-		template = new JdbcTemplate(dataSource);
-	}
 	
 	public <T> List<T> select(String sql, Object[] args, DataProccessor<T> proccessor)
 	{
@@ -91,6 +91,12 @@ public class JdbcSupport
 		{
 			return proccessor.populate(rs);
 		}
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception
+	{
+		template = new JdbcTemplate(dataSource);
 	}
 }
 

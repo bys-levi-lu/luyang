@@ -61,6 +61,11 @@ public class DBTypeDataSource implements DataSource, DBType
 	{
 		return dbType;
 	}
+	
+	public void setDbType(String dbType)
+	{
+		this.dbType = dbType;
+	}
 
 	@Override
 	public Connection getConnection() throws SQLException

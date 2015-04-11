@@ -2,6 +2,7 @@ package com.ly.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -26,13 +27,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * </pre>
  */
 @Controller
+@RequestMapping("/helloWorld")
 public class HelloWorldAction
 {
-	@RequestMapping("/helloWorld")
+	@RequestMapping
 	public String helloWorld(Model model)
 	{
 		model.addAttribute("message", "Hello World!");
+		System.out.println("Hello World!");
 		return "helloWorld";
+	}
+	
+	@RequestMapping(value="/hello/{orderNo}")
+	public String testPathValiable(@PathVariable String orderNo)
+	{
+		System.out.println(orderNo);
+		return "orderItem";
 	}
 }
 

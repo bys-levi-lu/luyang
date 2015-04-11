@@ -44,10 +44,18 @@ public class PageSqlParserFactory
 		@Override
 		public String parse(String sql, QueryPageInfo pageInfo)
 		{
-			// TODO Auto-generated method stub
-			return null;
+			StringBuilder sb = new StringBuilder(sql.toUpperCase());
+			if (pageInfo.getOrderBy() != null && !"".equals(pageInfo.getOrderBy()))
+			{
+				int startPos = sb.lastIndexOf(SqlBuiler._ORDERBY_ + SqlBuiler._ORDERBY_.length());
+				int length = sb.substring(startPos).length();
+				sb.replace(startPos, length, pageInfo.getOrderBy());
+			}
+			int startRow = pageInfo.getStartRow();
+			int count = pageInfo.getPageSize();
+			sb.append(" LIMIT ").append(startRow).append(",").append(count);
+			return sb.toString();
 		}
-		
 	}
 
 }

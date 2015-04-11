@@ -46,7 +46,10 @@
 	<classpathentry kind="lib" path="lib/tomcat/servlet-api.jar"/>
 	<classpathentry kind="lib" path="lib/commons/jstl.jar"/>
 	<classpathentry kind="lib" path="lib/commons/standard.jar"/>
-	<classpathentry kind="lib" path="lib/spring/spring-test-4.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/spring-test-4.1.1.RELEASE.jar" sourcepath="source/spring/spring-test-4.1.1.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="lib/json/jackson-core-2.5.2.jar"/>
+	<classpathentry kind="lib" path="lib/json/jackson-annotations-2.5.2.jar"/>
+	<classpathentry kind="lib" path="lib/json/jackson-databind-2.5.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="output" path="target/build/classes"/>
